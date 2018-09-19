@@ -10,6 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
-    "path": "^0.12.7"
+    "express-handlebars": "^3.0.0",
+    "nodemon": "^1.18.4",
+    "path": "^0.12.7",
+    "querystring": "^0.2.0",
+    "request": "^2.88.0"
   }
 }
