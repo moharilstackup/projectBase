@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <H2>Hello Form</H2>
+    <form method="GET" action="/uuids">
+        Number of UUIDs:
+        <input type="number" name="uuidCount" min="1">
+
+        <button type="submit">Generate</button>
+    </form>
+
+    <H3>Hello Form</H3>
+    <form method="POST" action="/uuidV5">
+        Namespace: 
+        <input type="text" name="namespace">
+        <br>
+        Number of UUIDs:
+        <input type="number" name="uuidCount" min="1" value="2">
+        <button type="submit">Generate</button>
+    </form>
+</body>
+
+</html>
