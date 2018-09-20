@@ -9,12 +9,10 @@ const bodyparser = require('body-parser');
 //Step 2: create an instance of the application
 const app = express();
 
-
-
 app.engine('hbs', hbs({ defaultLayout: 'main.hbs' }))
 app.set('view engine', 'hbs');
-//Step 3: define routes
 
+//Step 3: define routes
 
 
 //GET UUID
@@ -57,29 +55,10 @@ app.get('/uuids', (req, resp) => {
     resp.render('list_of_uuids', { uuidList: uuidList });
 })
 
-//Parse json and form-urlencode payload
-//app.use(bodyparser.json());
-//app.use(bodyparser.urlencoded());
-
-//const bodyparserJson = bodyparser.json();
 //POST
 app.post('/uuidV5', bodyparser.json(), bodyparser.urlencoded(),
     (req, resp) => {
         console.log("before req.body :", req.body);
-        /*     const mediaType=req.get('Content-Type');
-            switch (mediaType) {
-                case 'application/jason' : 
-                    try {
-                        bodyparserJson(req,resp)
-                    } catch(e) {
-        
-                    }
-                    break;
-                case 'application/x-www-form-urlencoded':
-                    break;
-                default:
-                    break;
-            } */
         console.log("after req.body :", req.body);
         const ns = req.body.namespace;
         const count = parseInt(req.body.uuidCount) || 2;
@@ -88,19 +67,6 @@ app.post('/uuidV5', bodyparser.json(), bodyparser.urlencoded(),
             uuidList.push(uuidv5(ns, uuidv5.DNS));
         resp.status(200);
         resp.render('list_of_uuids', { uuidList: uuidList });
-        // resp.status(200).end();
-
-        //req.body.namespace
-        //req.body.uuidCount
-
-        /*     const count = parseInt(req.query.uuidCount) || 1;
-            const uuidList = [];
-            for (let i = 0; i < count; i++)
-                uuidList.push(uuidv1());
-        
-            resp.status(200);
-            resp.type('text/html');
-            resp.render('list_of_uuids',{uuidList: uuidList}); */
     })
 
 //Serves from public
