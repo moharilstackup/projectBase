@@ -5,6 +5,17 @@ const hbs = require("express-handlebars");
 const bodyparser = require('body-parser');
 const cors = require("cors");
 const uuidv1 = require('uuid/v1');
+const mysql = require("mysql");
+
+//Configure a connection pool to the database
+const pool = mysql.createPool({
+    host: "localhost",
+    port: 3306,
+    user: "fred",
+    password: "yabadabadoo",
+    database: "derby",
+    connectionLimit: 4
+});
 
 
 //Step 2: create an instance of the application
