@@ -9,12 +9,13 @@ const mysql = require("mysql");
 
 //Configure a connection pool to the database
 const pool = mysql.createPool({
-    host: "localhost",
-    port: 3306,
-    user: "fred",
-    password: "yabadabadoo",
-    database: "derby",
-    connectionLimit: 4
+    host: process.env.DB_HOST, //"localhost",
+    port: process.env.DB_PORT, //3306,
+    user: process.env.DB_USER, //"root",
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME, //"derby",
+    connectionLimit: process.env.DB_CONLIMIT //4
+    // debug: true
 });
 
 
@@ -24,7 +25,6 @@ const app = express();
 //Setup views
 app.engine('hbs', hbs({ defaultLayout: 'main.hbs' }))
 app.set('view engine', 'hbs');
-
 
 //Step 3: define routes
 //GET UUID
